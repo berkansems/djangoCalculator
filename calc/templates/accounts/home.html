@@ -1,0 +1,25 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>hello {{name}} </h1>
+<form action="add" >
+
+    {% csrf_token %}
+    enter number 1: <input type="text" name="num1"> <br>
+    enter number 2: <input type="text" name="num2"> <br>
+    <input class="btn btn-warning" type="submit" name="plus" value="+">
+
+</form>
+
+</body>
+</html>
+
+
+{% endblock %}

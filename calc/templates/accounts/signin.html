@@ -1,0 +1,31 @@
+{% extends 'accounts/home.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                {% csrf_token %}
+                <br>
+                <input type="text" name="username" placeholder="Username" class="form-control"><br>
+                <input type="password" name="password" placeholder="password" class="form-control"><br>
+                <input class="btn btn-danger" type="submit">
+                <h4> dont have an account?<a  href="{% url 'signup' %}">Sign Up</a></h4>
+            </div>
+
+        </div>{{message}}
+    </div>
+
+</form>
+
+</body>
+</html>
+
+{% endblock %}

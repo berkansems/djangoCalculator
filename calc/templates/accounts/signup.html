@@ -1,0 +1,49 @@
+{% extends 'accounts/home.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <form method="POST" class=" user_card">
+                {% csrf_token %}
+
+                {{formSet.username}}<hr>
+                {{formSet.email}}<hr>
+                {{formSet.password1}}<hr>
+                {{formSet.password2}}<hr>
+
+                <input class="btn btn-danger" type="submit" name="submit" value="submit"><hr>
+
+                <a class="btn btn-info" href="{%url 'home' %}">Cancel</a>
+                {{formSet.errors}}
+            </form>
+            <h5>already have an account?<a href="{% url 'signin' %}">Sign In</a> </h5>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Username';
+    form_fields[2].placeholder = 'Email';
+    form_fields[3].placeholder = 'Enter Password';
+    form_fields[4].placeholder = 'Re-enter Password';
+
+    for (var field in form_fields) {
+        form_fields[field].className += ' form-control'
+    }
+</script>
+{% endblock %}

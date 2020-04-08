@@ -19,11 +19,24 @@ def home(request):
 
 @login_required(login_url='signin')
 def add(request):
-    number1=int(request.GET["num1"])
-    number2=int(request.GET["num2"])
+    number1=int(request.POST.get('num1'))
+    number2=int(request.POST.get('num2'))
+    result=0
+    if request.POST.get('plus'):
+        result = number2 + number1
 
-    add=number2+number1
-    return render(request,'accounts/add.html',{'add':add})
+    if request.POST.get('sub'):
+        result = number1 - number2
+
+    if request.POST.get('mul'):
+        result = number1 * number2
+
+    if request.POST.get('div'):
+        result = number1 / number2
+
+    return render(request, 'accounts/add.html', {'result': result})
+
+
 
 @unauthenticated_user
 def singup(request):

@@ -8,13 +8,18 @@
     <title>Title</title>
 </head>
 <body>
-<h1>hello {{name}} </h1>
-<form action="add" >
+<h1>welcome {{user}} </h1>
+<form method="POST" action="{% url 'add' %}" >
 
     {% csrf_token %}
-    enter number 1: <input type="text" name="num1"> <br>
-    enter number 2: <input type="text" name="num2"> <br>
+    Enter number 1: <input type="text" name="num1"> <br><br>
+    Enter number 2: <input type="text" name="num2"> <br><hr>
     <input class="btn btn-warning" type="submit" name="plus" value="+">
+    <input class="btn btn-warning" type="submit" name="sub" value="-">
+    <input class="btn btn-warning" type="submit" name="mul" value="*">
+    <input class="btn btn-warning" type="submit" name="div" value="/">
+    <br>
+    NOTE: Operations method considered as number1 opt to number2
 
 </form>
 

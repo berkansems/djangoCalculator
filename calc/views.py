@@ -18,7 +18,7 @@ def home(request):
 
 
 @login_required(login_url='signin')
-def add(request):
+def result(request):
     number1=int(request.POST.get('num1'))
     number2=int(request.POST.get('num2'))
     result=0
@@ -34,7 +34,7 @@ def add(request):
     if request.POST.get('div'):
         result = number1 / number2
 
-    return render(request, 'accounts/add.html', {'result': result})
+    return render(request, 'accounts/result.html', {'result': result})
 
 
 

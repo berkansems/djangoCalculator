@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>welcome {{user}} </h1>
-<form method="POST" action="{% url 'add' %}" >
+<form method="POST" action="{% url 'result' %}" >
 
     {% csrf_token %}
     Enter number 1: <input type="text" name="num1"> <br><br>
